@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from './src/pages/LoginPage';
 import HomePage from './src/pages/HomePage';
+import UsersPage from './src/pages/UsersPage';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,11 @@ export default function App() {
           name="Home"
           component={HomePage}
           options={{ title: 'Home' }}
+        />
+        <Stack.Screen
+          name='Users'
+          component={UsersPage}
+          options={{ title: 'Usuários' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

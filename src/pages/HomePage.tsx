@@ -52,7 +52,7 @@ export default function HomePage() {
         <View style={styles.container}>
             <Header
                 userName={userData?.name || 'Usuário'}
-                userImage="https://avatars.githubusercontent.com/u/60905291?v=4"
+                userImage="https://banner2.cleanpng.com/20180920/yko/kisspng-computer-icons-portable-network-graphics-avatar-ic-1713936211478.webp"
             />
 
             <View style={styles.cardsContainer}>
@@ -76,7 +76,7 @@ export default function HomePage() {
                     />
                     <TouchableOpacity
                         style={styles.cardButton}
-                        onPress={() => navigation.navigate('Usuarios')}
+                        onPress={() => navigation.navigate('Users')}
                     >
                         <Text style={styles.buttonText}>Gerenciar Usuários</Text>
                     </TouchableOpacity>
