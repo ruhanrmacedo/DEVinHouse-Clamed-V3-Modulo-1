@@ -18,7 +18,7 @@ export default function LoginPage() {
     useEffect(() => {
         const checkLogin = async () => {
             const user = await AsyncStorage.getItem('user');
-            if (user) {
+            if (user && JSON.parse(user)?.name) {
                 navigation.reset({ index: 0, routes: [{ name: 'Home' }] });
             }
         };
