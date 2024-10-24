@@ -76,7 +76,7 @@ export default function HomePage() {
                     />
                     <TouchableOpacity
                         style={styles.cardButton}
-                        onPress={() => navigation.navigate('Users')}
+                        onPress={() => navigation.navigate('Usuarios')}
                     >
                         <Text style={styles.buttonText}>Gerenciar Usuários</Text>
                     </TouchableOpacity>

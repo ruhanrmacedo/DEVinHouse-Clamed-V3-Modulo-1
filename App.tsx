@@ -5,6 +5,7 @@ import LoginPage from './src/pages/LoginPage';
 import HomePage from './src/pages/HomePage';
 import UsersPage from './src/pages/UsersPage';
 import AddUserPage from './src/pages/AddUserPage';
+import ProductsPage from './src/pages/ProductsPage';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,7 @@ export default function App() {
           options={{ title: 'Home' }}
         />
         <Stack.Screen
-          name='Users'
+          name='Usuarios'
           component={UsersPage}
           options={{ title: 'Usuários' }}
         />
@@ -31,6 +32,11 @@ export default function App() {
           name="AddUser"
           component={AddUserPage}
           options={{ title: 'Criar Usuário' }}
+        />
+        <Stack.Screen
+          name="Produtos"
+          component={ProductsPage}
+          options={{ title: 'Estoque' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
