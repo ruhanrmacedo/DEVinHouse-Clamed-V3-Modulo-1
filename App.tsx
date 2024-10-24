@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginPage from './src/pages/LoginPage';
 import HomePage from './src/pages/HomePage';
 import UsersPage from './src/pages/UsersPage';
+import AddUserPage from './src/pages/AddUserPage';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,11 @@ export default function App() {
           name='Users'
           component={UsersPage}
           options={{ title: 'Usuários' }}
+        />
+        <Stack.Screen
+          name="AddUser"
+          component={AddUserPage}
+          options={{ title: 'Criar Usuário' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
