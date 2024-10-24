@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, TouchableOpacity, Switch, FlatList, Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
 type User = {
     id: number;
@@ -14,20 +14,28 @@ export default function UsersPage() {
     const [loading, setLoading] = useState(true);
     const navigation = useNavigation();
 
-    useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const response = await fetch('http://10.0.2.2:3000/users');
-                const data = await response.json();
-                setUsers(data);
-            } catch (error) {
-                console.error('Erro ao carregar usuários:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchUsers();
-    }, []);
+    const fetchUsers = async () => {
+        try {
+            const response = await fetch('http://10.0.2.2:3000/users');
+            const data = await response.json();
+            setUsers(data);
+        } catch (error) {
+            console.error('Erro ao carregar usuários:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useFocusEffect(
+        useCallback(() => {
+            setLoading(true);
+            const timer = setTimeout(() => {
+                fetchUsers();
+            }, 3000);
+            
+            return () => clearTimeout(timer);
+        }, [])
+    );
 
     const toggleStatus = async (userId: number) => {
         try {
