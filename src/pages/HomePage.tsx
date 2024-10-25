@@ -10,6 +10,7 @@ type RootStackParamList = {
     Produtos: undefined;
     Usuarios: undefined;
     Login: undefined;
+    Movimentacoes: undefined
 };
 
 type HomeProps = StackNavigationProp<RootStackParamList, 'Produtos'>;
@@ -79,6 +80,19 @@ export default function HomePage() {
                         onPress={() => navigation.navigate('Usuarios')}
                     >
                         <Text style={styles.buttonText}>Gerenciar Usuários</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.card}>
+                    <Image
+                        source={require('../../assets/movimentacoes.png')}
+                        style={styles.cardImage}
+                    />
+                    <TouchableOpacity
+                        style={styles.cardButton}
+                        onPress={() => navigation.navigate('Movimentacoes')}
+                    >
+                        <Text style={styles.buttonText}>Movimentações</Text>
                     </TouchableOpacity>
                 </View>
             </View>

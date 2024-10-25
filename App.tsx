@@ -6,6 +6,7 @@ import HomePage from './src/pages/HomePage';
 import UsersPage from './src/pages/UsersPage';
 import AddUserPage from './src/pages/AddUserPage';
 import ProductsPage from './src/pages/ProductsPage';
+import MovementsPage from './src/pages/MovementsPage';
 
 const Stack = createStackNavigator();
 
@@ -37,6 +38,11 @@ export default function App() {
           name="Produtos"
           component={ProductsPage}
           options={{ title: 'Estoque' }}
+        />
+        <Stack.Screen
+          name="Movimentacoes"
+          component={MovementsPage}
+          options={{ title: 'Movimentacoes' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
