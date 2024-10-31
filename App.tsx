@@ -8,6 +8,8 @@ import AddUserPage from './src/pages/AddUserPage';
 import ProductsPage from './src/pages/ProductsPage';
 import MovementsPage from './src/pages/MovementsPage';
 import AddMovementPage from './src/pages/AddMovementPage';
+import DriverMovementsPage from './src/pages/DriverMovementsPage';
+import MapaPage from './src/pages/MapaPage';
 
 const Stack = createStackNavigator();
 
@@ -49,6 +51,16 @@ export default function App() {
           name="AddMovement"
           component={AddMovementPage}
           options={{ title: 'Nova Movimentacao' }}
+        />
+        <Stack.Screen
+          name="DriverMovements"
+          component={DriverMovementsPage}
+          options={{ title: 'Movimentações do Motorista' }}
+        />
+        <Stack.Screen 
+          name="MapaPage" 
+          component={MapaPage}
+          options={{ title: 'Mapa de Entrega' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Image } from 'react-native';
-import Header from '../components/Header'; // Componente Header importado
+import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Image, ScrollView } from 'react-native';
+import Header from '../components/Header';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -11,6 +11,7 @@ type RootStackParamList = {
     Usuarios: undefined;
     Login: undefined;
     Movimentacoes: undefined
+    DriverMovements: undefined
 };
 
 type HomeProps = StackNavigationProp<RootStackParamList, 'Produtos'>;
@@ -50,7 +51,7 @@ export default function HomePage() {
     }
 
     return (
-        <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
             <Header
                 userName={userData?.name || 'Usuário'}
                 userImage="https://banner2.cleanpng.com/20180920/yko/kisspng-computer-icons-portable-network-graphics-avatar-ic-1713936211478.webp"
@@ -95,18 +96,31 @@ export default function HomePage() {
                         <Text style={styles.buttonText}>Movimentações</Text>
                     </TouchableOpacity>
                 </View>
+
+                <View style={styles.card}>
+                    <Image
+                        source={require('../../assets/movimentacoes.png')}
+                        style={styles.cardImage}
+                    />
+                    <TouchableOpacity
+                        style={styles.cardButton}
+                        onPress={() => navigation.navigate('DriverMovements')}
+                    >
+                        <Text style={styles.buttonText}>Movimentações Motorista</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
 
             <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
                 <Text style={styles.buttonText}>Logout</Text>
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
+    scrollContainer: {
+        flexGrow: 1,
         backgroundColor: '#1A5319',
         padding: 16,
     },
@@ -117,6 +131,11 @@ const styles = StyleSheet.create({
     },
     cardsContainer: {
         marginTop: 20,
+        alignItems: 'center',
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
         alignItems: 'center',
     },
     card: {
