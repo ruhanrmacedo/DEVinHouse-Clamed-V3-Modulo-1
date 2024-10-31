@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoginPage from './src/pages/LoginPage';
 import HomePage from './src/pages/HomePage';
 import UsersPage from './src/pages/UsersPage';
@@ -10,10 +11,31 @@ import MovementsPage from './src/pages/MovementsPage';
 import AddMovementPage from './src/pages/AddMovementPage';
 import DriverMovementsPage from './src/pages/DriverMovementsPage';
 import MapaPage from './src/pages/MapaPage';
+import { View, ActivityIndicator } from 'react-native';
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  const [initialRoute, setInitialRoute] = useState<string | null>(null);
+
+  useEffect(() => {
+    const initializeApp = async () => {
+      await AsyncStorage.removeItem('user');
+      
+      setInitialRoute('Login');
+    };
+    
+    initializeApp();
+  }, []);
+
+  if (!initialRoute) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" color="#508D4E" />
+      </View>
+    );
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
