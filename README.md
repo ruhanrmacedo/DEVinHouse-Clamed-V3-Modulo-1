@@ -55,7 +55,7 @@ A dificuldade no controle de estoque e na movimentação de produtos entre difer
    npm run start
 
 4. Clone o repositório:
-   git clone https://github.com/ruhanrmacedo/control-service-front.git
+   git clone https://github.com/ruhanrmacedo/DEVinHouse-Clamed-V3-Modulo-1
 
 5. Instale as dependências:
    npm install
