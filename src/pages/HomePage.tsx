@@ -37,11 +37,6 @@ export default function HomePage() {
         fetchUserData();
     }, []);
 
-    const handleLogout = async () => {
-        await AsyncStorage.removeItem('user');
-        navigation.reset({ index: 0, routes: [{ name: 'Login' }] });
-    };
-
     if (loading) {
         return (
             <View style={styles.loadingContainer}>
@@ -64,6 +59,16 @@ export default function HomePage() {
                             title="Gerenciar Usuários"
                             imageSource={require('../../assets/usuarios.png')}
                             onPress={() => navigation.navigate('Usuarios')}
+                        />
+                        <CardButton
+                            title="Movimentações"
+                            imageSource={require('../../assets/movimentacoes.png')}
+                            onPress={() => navigation.navigate('Movimentacoes')}
+                        />
+                        <CardButton
+                            title="Movimentações Motorista"
+                            imageSource={require('../../assets/movimentacoes.png')}
+                            onPress={() => navigation.navigate('DriverMovements')}
                         />
                     </>
                 );
@@ -100,13 +105,11 @@ export default function HomePage() {
             <Header
                 userName={userData?.name || 'Usuário'}
                 userImage="https://banner2.cleanpng.com/20180920/yko/kisspng-computer-icons-portable-network-graphics-avatar-ic-1713936211478.webp"
+                userProfile={userData?.profile || 'Perfil'}
             />
 
             <View style={styles.cardsContainer}>{renderCards()}</View>
 
-            <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-                <Text style={styles.buttonText}>Logout</Text>
-            </TouchableOpacity>
         </ScrollView>
     );
 }

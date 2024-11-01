@@ -92,7 +92,7 @@ export default function MovementsPage() {
                 <Text style={styles.label}>Destino:</Text> {item.destino.nome}
             </Text>
             <Text style={styles.movementText}>
-                <Text style={styles.label}>Produto:</Text> {item.produto.nome} - {item.quantidade}
+                <Text style={styles.label}>Produto:</Text> {item.produto.nome} - {item.quantidade}<Text> unidades</Text>
             </Text>
             <Text style={styles.movementText}>
                 <Text style={styles.label}>Status:</Text> {item.status}

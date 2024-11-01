@@ -11,6 +11,7 @@ import MovementsPage from './src/pages/MovementsPage';
 import AddMovementPage from './src/pages/AddMovementPage';
 import DriverMovementsPage from './src/pages/DriverMovementsPage';
 import MapaPage from './src/pages/MapaPage';
+import ProfilePage from './src/pages/ProfilePage';
 import { View, ActivityIndicator } from 'react-native';
 
 const Stack = createStackNavigator();
@@ -21,10 +22,10 @@ export default function App() {
   useEffect(() => {
     const initializeApp = async () => {
       await AsyncStorage.removeItem('user');
-      
+
       setInitialRoute('Login');
     };
-    
+
     initializeApp();
   }, []);
 
@@ -79,10 +80,15 @@ export default function App() {
           component={DriverMovementsPage}
           options={{ title: 'Movimentações do Motorista' }}
         />
-        <Stack.Screen 
-          name="MapaPage" 
+        <Stack.Screen
+          name="MapaPage"
           component={MapaPage}
           options={{ title: 'Mapa de Entrega' }}
+        />
+        <Stack.Screen
+          name="ProfilePage"
+          component={ProfilePage}
+          options={{ title: 'Perfil' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
