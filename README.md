@@ -28,6 +28,12 @@ A dificuldade no controle de estoque e na movimentação de produtos entre difer
 ## Diagrama de Casos de Uso
 ![Diagrama de Casos de Uso](https://github.com/user-attachments/assets/fed941c2-760c-440a-ba3b-af3619a63593)
 
+## Interface do Aplicativo
+## Tela Principal (Home)**:
+  ![image](https://github.com/user-attachments/assets/97d5b688-327b-40b7-8b76-602da00cc18e)
+
+## Tela de Movimentação do Motorista**:
+  ![image](https://github.com/user-attachments/assets/0f7a2d7f-ea4d-432a-a6b1-bde3c17fa91f)
 
 ## Como Executar o Projeto
 
