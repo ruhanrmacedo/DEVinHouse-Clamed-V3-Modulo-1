@@ -73,3 +73,5 @@ A dificuldade no controle de estoque e na movimentação de produtos entre difer
   - Interface aprimorada para visualização de estoque
   - Notificações de novas movimentações para usuários
    
+## Apresentação em vídeo
+https://drive.google.com/file/d/1A1A31qgJSKmtU7eJq69Fh37uhKqjo7v5/view?usp=sharing
